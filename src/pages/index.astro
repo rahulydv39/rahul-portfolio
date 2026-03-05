@@ -1,0 +1,1289 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import passportImg from "../assets/passport.png";
+---
+
+<Layout title="Rahul. | Creative Developer & AI Engineer">
+	<!-- Fixed Canvas Background -->
+	<canvas
+		id="sequence-canvas"
+		class="fixed inset-0 w-full h-full z-0 pointer-events-none"></canvas>
+
+	<!-- Massive Pinned SCroll Container -> The Void -->
+	<section
+		id="intro-sequence"
+		class="relative w-full h-screen overflow-hidden bg-transparent flex items-center justify-center pointer-events-none"
+	>
+		<!-- Final HTML Layout (Hidden initially, faded in during Stage 6) -->
+		<div
+			id="final-layout"
+			class="absolute inset-0 w-full h-full z-10 pointer-events-none opacity-0"
+		>
+			<!-- Left Column: Text Content (Primary Layer z-20) -->
+			<div
+				class="absolute inset-0 w-full h-full flex flex-col justify-center px-8 md:pl-24 z-20"
+			>
+				<div class="max-w-3xl w-full text-left mt-20 md:mt-0">
+					<p
+						id="final-top-text"
+						class="text-xs md:text-sm uppercase tracking-[0.2em] text-gray-400 mb-6 opacity-0 whitespace-nowrap"
+					>
+						Computer Science Engineering (2023-2027) • I K G PTU
+						MOHALI C-1
+					</p>
+					<h1
+						id="final-title"
+						class="text-7xl md:text-[9rem] font-bold uppercase leading-[0.9] tracking-tighter text-white mb-4 whitespace-nowrap"
+					>
+						Rahul.
+					</h1>
+					<h2
+						id="final-subtitle"
+						class="text-2xl md:text-5xl font-light text-white/90 mb-10 whitespace-nowrap"
+					>
+						Creative Developer & AI Engineer
+					</h2>
+
+					<div
+						id="final-about"
+						class="max-w-xl border-t border-white/10 pt-6 opacity-0"
+					>
+						<p
+							class="text-sm md:text-base text-gray-300/90 leading-relaxed font-light"
+						>
+							A Computer Science Engineering student and Diploma
+							Mechanical Engineer from Patna's No. 1 college, I
+							build at the convergence of AI, filmmaking, and deep
+							science. Ranked 3rd at IIT Jodhpur's zBrain AI Agent
+							Hackathon and selected for the 1 Billion Follower
+							Summit's AI Filmmaking track — I'm driven by
+							astrophysics, neuroscience, and the Russian
+							language.
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- Right Column: Profile Photo (Expanded 40vw, Overlaps under text) -->
+			<div
+				id="hero-bg-photo"
+				class="absolute right-0 bottom-0 w-full md:w-[45vw] h-[70vh] md:h-screen z-10 opacity-0 pointer-events-none"
+			>
+				<Image
+					src={passportImg}
+					alt="Rahul — Creative Developer & AI Engineer"
+					class="w-full h-full object-cover object-bottom md:object-bottom-right"
+					style="-webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%); mask-image: linear-gradient(to right, transparent 0%, black 0%);"
+					width={800}
+					height={1080}
+				/>
+			</div>
+		</div>
+	</section>
+
+	<section
+		id="selected-works"
+		class="min-h-screen px-8 md:px-24 py-32 bg-transparent relative z-20"
+	>
+		<h3
+			class="text-xl md:text-2xl uppercase tracking-[0.2em] text-gray-500 mb-20"
+			data-scroll-trigger
+		>
+			— Selected Works
+		</h3>
+
+		<div class="flex flex-col">
+			<a
+				href="/projects/zbrain"
+				class="group block border-t border-gray-800 py-12 cursor-pointer relative overflow-hidden"
+				data-scroll-trigger
+			>
+				<div
+					class="flex flex-col md:flex-row justify-between md:items-end relative z-10 transition-transform duration-500 group-hover:translate-x-4"
+				>
+					<div>
+						<h4
+							class="text-5xl md:text-7xl font-medium text-white tracking-tight"
+						>
+							zBrain AI Agent
+						</h4>
+						<p class="text-xl text-gray-400 mt-4 font-light">
+							3rd Rank — IIT Jodhpur Competition
+						</p>
+					</div>
+					<span
+						class="text-lg md:text-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-6 md:mt-0 font-mono text-[#ff3333]"
+					>
+						Explore ↗
+					</span>
+				</div>
+			</a>
+
+			<a
+				href="/projects/file-converter"
+				class="group block border-t border-gray-800 py-12 cursor-pointer relative overflow-hidden"
+				data-scroll-trigger
+			>
+				<div
+					class="flex flex-col md:flex-row justify-between md:items-end relative z-10 transition-transform duration-500 group-hover:translate-x-4"
+				>
+					<div>
+						<h4
+							class="text-5xl md:text-7xl font-medium text-white tracking-tight"
+						>
+							File Converter
+						</h4>
+						<p class="text-xl text-gray-400 mt-4 font-light">
+							Fully Optimized Mobile Application
+						</p>
+					</div>
+					<span
+						class="text-lg md:text-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-6 md:mt-0 font-mono text-[#ff3333]"
+					>
+						Explore ↗
+					</span>
+				</div>
+			</a>
+
+			<a
+				href="#"
+				class="group block border-t border-gray-800 py-12 cursor-pointer relative overflow-hidden"
+				data-scroll-trigger
+			>
+				<div
+					class="flex flex-col md:flex-row justify-between md:items-end relative z-10 transition-transform duration-500 group-hover:translate-x-4"
+				>
+					<div>
+						<h4
+							class="text-5xl md:text-7xl font-medium text-white tracking-tight"
+						>
+							Dark Matter Research
+						</h4>
+						<p class="text-xl text-gray-400 mt-4 font-light">
+							Brahmaand: The Space Ideathon — LMNIIT JAIPUR
+						</p>
+					</div>
+					<span
+						class="text-lg md:text-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-6 md:mt-0 font-mono text-[#ff3333]"
+					>
+						Explore ↗
+					</span>
+				</div>
+			</a>
+
+			<a
+				href="/projects/placeholder-1"
+				class="group block border-t border-gray-800 py-12 cursor-pointer relative overflow-hidden"
+				data-scroll-trigger
+			>
+				<div
+					class="flex flex-col md:flex-row justify-between md:items-end relative z-10 transition-transform duration-500 group-hover:translate-x-4"
+				>
+					<div>
+						<h4
+							class="text-5xl md:text-7xl font-medium text-white tracking-tight"
+						>
+							IIT PAN 4.0 HACKATHON
+						</h4>
+						<p class="text-xl text-gray-400 mt-4 font-light">
+							I build a multi Agent System (MAS) for Dissater
+							Manegment & Risk Prevention, in second round.
+						</p>
+					</div>
+					<span
+						class="text-lg md:text-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-6 md:mt-0 font-mono text-[#ff3333]"
+					>
+						Explore ↗
+					</span>
+				</div>
+			</a>
+
+			<a
+				href="/projects/placeholder-2"
+				class="group block border-t border-gray-800 py-12 cursor-pointer relative overflow-hidden"
+				data-scroll-trigger
+			>
+				<div
+					class="flex flex-col md:flex-row justify-between md:items-end relative z-10 transition-transform duration-500 group-hover:translate-x-4"
+				>
+					<div>
+						<h4
+							class="text-5xl md:text-7xl font-medium text-white tracking-tight"
+						>
+							1 Billion Follower Summit
+						</h4>
+						<p class="text-xl text-gray-400 mt-4 font-light">
+							AI Filmmaking Award — Dubai
+						</p>
+					</div>
+					<span
+						class="text-lg md:text-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-6 md:mt-0 font-mono text-[#ff3333]"
+					>
+						Explore ↗
+					</span>
+				</div>
+			</a>
+
+			<a
+				href="/projects/placeholder-3"
+				class="group block border-y border-gray-800 py-12 cursor-pointer relative overflow-hidden"
+				data-scroll-trigger
+			>
+				<div
+					class="flex flex-col md:flex-row justify-between md:items-end relative z-10 transition-transform duration-500 group-hover:translate-x-4"
+				>
+					<div>
+						<h4
+							class="text-5xl md:text-7xl font-medium text-white tracking-tight"
+						>
+							MICROSOFT AGENT LEAUGE HACKATHON
+						</h4>
+						<p class="text-xl text-gray-400 mt-4 font-light">
+							I build and reasoning agent , fully production
+							ready.
+						</p>
+					</div>
+					<span
+						class="text-lg md:text-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-6 md:mt-0 font-mono text-[#ff3333]"
+					>
+						Explore ↗
+					</span>
+				</div>
+			</a>
+		</div>
+	</section>
+
+	<!-- Massive 3D Typographic Achievement Grid -->
+	<section
+		id="achievement-grid"
+		class="relative w-full min-h-[150vh] flex flex-col items-center justify-center overflow-hidden z-20"
+	>
+		<!-- Background color handler for GSAP -->
+		<div
+			class="achievement-bg absolute inset-0 transition-colors duration-50"
+			style="background-color: #fdfbf7;"
+		>
+		</div>
+
+		<div
+			class="cube-container relative z-10 w-full max-w-7xl mx-auto px-4 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-32 perspective-distant"
+		>
+			<!-- Cube 1 -->
+			<div
+				class="achievement-cube w-full aspect-square relative transform-style-3d mx-auto max-w-[500px]"
+			>
+				<div class="cube-face cube-front">
+					3RD RANK zBRAIN AI AGENT HACKATHON IIT JODHPUR
+				</div>
+				<div class="cube-face cube-right">
+					3RD RANK zBRAIN AI AGENT HACKATHON IIT JODHPUR
+				</div>
+				<div class="cube-face cube-bottom">
+					3RD RANK zBRAIN AI AGENT HACKATHON IIT JODHPUR
+				</div>
+				<div class="cube-face cube-top">
+					3RD RANK zBRAIN AI AGENT HACKATHON IIT JODHPUR
+				</div>
+				<div class="cube-face cube-back">
+					3RD RANK zBRAIN AI AGENT HACKATHON IIT JODHPUR
+				</div>
+				<div class="cube-face cube-left">
+					3RD RANK zBRAIN AI AGENT HACKATHON IIT JODHPUR
+				</div>
+			</div>
+
+			<!-- Cube 2 -->
+			<div
+				class="achievement-cube w-full aspect-square relative transform-style-3d mx-auto max-w-[500px]"
+			>
+				<div class="cube-face cube-front">
+					NATIONAL SPACE SCIENCE CONFERENCE KHARAGPUR PRESENTER
+				</div>
+				<div class="cube-face cube-right">
+					NATIONAL SPACE SCIENCE CONFERENCE KHARAGPUR PRESENTER
+				</div>
+				<div class="cube-face cube-bottom">
+					NATIONAL SPACE SCIENCE CONFERENCE KHARAGPUR PRESENTER
+				</div>
+				<div class="cube-face cube-top">
+					NATIONAL SPACE SCIENCE CONFERENCE KHARAGPUR PRESENTER
+				</div>
+				<div class="cube-face cube-back">
+					NATIONAL SPACE SCIENCE CONFERENCE KHARAGPUR PRESENTER
+				</div>
+				<div class="cube-face cube-left">
+					NATIONAL SPACE SCIENCE CONFERENCE KHARAGPUR PRESENTER
+				</div>
+			</div>
+
+			<!-- Cube 3 -->
+			<div
+				class="achievement-cube w-full aspect-square relative transform-style-3d mx-auto max-w-[500px]"
+			>
+				<div class="cube-face cube-front">
+					3RD RANK ENCODE AI HEALTH HACKATHON
+				</div>
+				<div class="cube-face cube-right">
+					3RD RANK ENCODE AI HEALTH HACKATHON
+				</div>
+				<div class="cube-face cube-bottom">
+					3RD RANK ENCODE AI HEALTH HACKATHON
+				</div>
+				<div class="cube-face cube-top">
+					3RD RANK ENCODE AI HEALTH HACKATHON
+				</div>
+				<div class="cube-face cube-back">
+					3RD RANK ENCODE AI HEALTH HACKATHON
+				</div>
+				<div class="cube-face cube-left">
+					3RD RANK ENCODE AI HEALTH HACKATHON
+				</div>
+			</div>
+
+			<!-- Cube 4 -->
+			<div
+				class="achievement-cube w-full aspect-square relative transform-style-3d mx-auto max-w-[500px]"
+			>
+				<div class="cube-face cube-front">
+					FINALIST 1 BILLION FOLLOWER SUMMIT AI FILMMAKING
+				</div>
+				<div class="cube-face cube-right">
+					FINALIST 1 BILLION FOLLOWER SUMMIT AI FILMMAKING
+				</div>
+				<div class="cube-face cube-bottom">
+					FINALIST 1 BILLION FOLLOWER SUMMIT AI FILMMAKING
+				</div>
+				<div class="cube-face cube-top">
+					FINALIST 1 BILLION FOLLOWER SUMMIT AI FILMMAKING
+				</div>
+				<div class="cube-face cube-back">
+					FINALIST 1 BILLION FOLLOWER SUMMIT AI FILMMAKING
+				</div>
+				<div class="cube-face cube-left">
+					FINALIST 1 BILLION FOLLOWER SUMMIT AI FILMMAKING
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script>
+		import { gsap } from "gsap";
+		import { ScrollTrigger } from "gsap/ScrollTrigger";
+		gsap.registerPlugin(ScrollTrigger);
+
+		// Ensure font is loaded to calculate correct text widths for the Canvas Wall
+		document.fonts.ready.then(() => {
+			const canvas = document.getElementById(
+				"sequence-canvas",
+			) as HTMLCanvasElement;
+			const ctx = canvas?.getContext("2d");
+			const finalLayoutDOM = document.getElementById("final-layout");
+			const titleDOM = document.getElementById("final-title");
+			const subtitleDOM = document.getElementById("final-subtitle");
+			const topTextDOM = document.getElementById("final-top-text");
+			const aboutDOM = document.getElementById("final-about");
+			const photoDOM = document.getElementById("hero-bg-photo");
+
+			if (!canvas || !ctx || !finalLayoutDOM || !titleDOM || !subtitleDOM)
+				return;
+
+			// Content exact mapping
+			const paragraph =
+				"The digital frontier requires a multidisciplinary approach to engineering and design. I am RAHUL. a Computer Science Engineering student driven by the convergence of complex systems. My foundation is built on understanding intricate computer networks, chip design for physical AI, and the profound mathematical mysteries of space science and cosmology. As a Creative Developer & AI Engineer I am fueled by a relentless curiosity—whether bridging the gap between machine learning and AI filmmaking, exploring the nuances of neuroscience and psychology, or mapping linguistic structures through the Russian language. By blending raw computational power with creative vision, I forge new paradigms of discovery, ensuring we are active participants in shaping the future.";
+
+			const targetTitleStr = "RAHUL.";
+			const targetSubtitleStr = "Creative Developer & AI Engineer";
+
+			// Inject spans to track exact DOM bounded rects per letter
+			titleDOM.innerHTML = targetTitleStr
+				.split("")
+				.map(
+					(c) =>
+						`<span style="display:inline-block;">${c === " " ? "&nbsp;" : c}</span>`,
+				)
+				.join("");
+			subtitleDOM.innerHTML = targetSubtitleStr
+				.split("")
+				.map(
+					(c) =>
+						`<span style="display:inline-block;">${c === " " ? "&nbsp;" : c}</span>`,
+				)
+				.join("");
+
+			let canvasChars: any[] = [];
+			let width = 0,
+				height = 0;
+			let dpr = 1;
+
+			let offCanvas = document.createElement("canvas");
+			let offCtx = offCanvas.getContext("2d");
+
+			const characters =
+				"ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-=[]{}|;':,./<>?`~";
+			const welcomeTexts = [
+				"WELCOME",
+				"नमस्ते",
+				"HOLA",
+				"BONJOUR",
+				"ПРИВЕТ",
+				"歓迎",
+				"ਜੀ ਆਇਆਂ ਨੂੰ",
+				"સ્વાગત છે",
+				"रउआ सभ के स्वागत बा",
+				"خوش آمدید",
+				"স্বাগতম",
+				"நல்வரவு",
+				"స్వాగతం",
+				"ସ୍ଵାଗତମ୍",
+				"ಸ್ವಾಗತ",
+				"স্বাগতম",
+			];
+
+			// Static Scrambling Grid Variables
+			const bgFontSize = 14;
+			let gridCols = 0;
+			let gridRows = 0;
+			let gridChars: string[] = [];
+
+			const initBgGrid = () => {
+				gridCols = Math.ceil(width / bgFontSize) + 1;
+				gridRows = Math.ceil(height / bgFontSize) + 1;
+				const total = gridCols * gridRows;
+				gridChars = [];
+				for (let i = 0; i < total; i++) {
+					gridChars[i] =
+						characters[
+							Math.floor(Math.random() * characters.length)
+						];
+				}
+				// Size offscreen canvas to match (capped DPR)
+				offCanvas.width = (width * dpr) | 0;
+				offCanvas.height = (height * dpr) | 0;
+				if (offCtx) offCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+			};
+
+			const resize = () => {
+				// Optimization 1: Cap DPR at 1.5
+				dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+				width = window.innerWidth;
+				height = window.innerHeight;
+				canvas.width = (width * dpr) | 0;
+				canvas.height = (height * dpr) | 0;
+				ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+				buildDataWall();
+				initBgGrid();
+			};
+
+			const buildDataWall = () => {
+				canvasChars = [];
+				let wallFontSize = width < 768 ? 12 : 16;
+				const wallWidth = Math.min(width * 0.85, 900);
+
+				ctx.font = `bold ${wallFontSize}px Inter, sans-serif`;
+				ctx.textAlign = "left";
+				ctx.textBaseline = "top";
+
+				let words = paragraph.split(" ");
+				let cx = (width - wallWidth) / 2;
+				let lineHeight = wallFontSize * 1.6;
+
+				let globalCharIndex = 0;
+				let currX = cx;
+				let linesData: any[] = [];
+				let currentLineData: any[] = [];
+
+				for (let i = 0; i < words.length; i++) {
+					let word = words[i];
+					let wordWidth = ctx.measureText(word + " ").width;
+
+					// Flow wrap horizontally
+					if (
+						currX + wordWidth > cx + wallWidth &&
+						currentLineData.length > 0
+					) {
+						linesData.push(currentLineData);
+						currentLineData = [];
+						currX = cx;
+					}
+
+					let wordStartIndex = paragraph.indexOf(
+						word,
+						globalCharIndex,
+					);
+
+					// Missing spaces padding tracker
+					while (globalCharIndex < wordStartIndex) {
+						let spaceChar = paragraph[globalCharIndex];
+						let w = ctx.measureText(spaceChar).width;
+						currentLineData.push({
+							char: spaceChar,
+							w,
+							globalIndex: globalCharIndex,
+						});
+						currX += w;
+						globalCharIndex++;
+					}
+
+					for (let c = 0; c < word.length; c++) {
+						let char = word[c];
+						let w = ctx.measureText(char).width;
+						currentLineData.push({
+							char,
+							w,
+							globalIndex: globalCharIndex,
+						});
+						currX += w;
+						globalCharIndex++;
+					}
+				}
+				if (currentLineData.length > 0) linesData.push(currentLineData);
+
+				let totalHeight = linesData.length * lineHeight;
+				let startY = (height - totalHeight) / 2;
+
+				// Brief expose to fetch exact bounding client coordinates
+				finalLayoutDOM.style.opacity = "0.001";
+				finalLayoutDOM.style.display = "flex";
+
+				const titleSpans = titleDOM.querySelectorAll("span");
+				const subtitleSpans = subtitleDOM.querySelectorAll("span");
+				const titleStart = paragraph.indexOf(targetTitleStr);
+				const subtitleStart = paragraph.indexOf(targetSubtitleStr);
+
+				linesData.forEach((line, lineIndex) => {
+					let lx =
+						(width - line.reduce((acc, c) => acc + c.w, 0)) / 2; // Center horizontally strictly
+					let ly = startY + lineIndex * lineHeight;
+
+					line.forEach((item) => {
+						let isTitle =
+							item.globalIndex >= titleStart &&
+							item.globalIndex <
+								titleStart + targetTitleStr.length;
+						let isSubtitle =
+							item.globalIndex >= subtitleStart &&
+							item.globalIndex <
+								subtitleStart + targetSubtitleStr.length;
+
+						let charDef = {
+							char: item.char,
+							origX: lx,
+							origY: ly,
+							isTitle,
+							isSubtitle,
+							targetX: lx,
+							targetY: ly,
+							targetFontSize: wallFontSize,
+							origFontSize: wallFontSize,
+							vx: (Math.random() - 0.5) * 4000 + 2000, // Bias highly rightwards
+							vy: -Math.random() * 2000 - 1000, // Blast skywards initially before grav descends
+						};
+
+						// DOM Handoff Matching coordinates extraction
+						if (isTitle) {
+							let sIdx = item.globalIndex - titleStart;
+							if (titleSpans[sIdx]) {
+								let rect =
+									titleSpans[sIdx].getBoundingClientRect();
+								charDef.targetX = rect.left;
+								charDef.targetY = rect.top;
+								charDef.targetFontSize =
+									parseFloat(
+										window.getComputedStyle(
+											titleSpans[sIdx],
+										).fontSize,
+									) || wallFontSize;
+							}
+						} else if (isSubtitle) {
+							let sIdx = item.globalIndex - subtitleStart;
+							if (subtitleSpans[sIdx]) {
+								let rect =
+									subtitleSpans[sIdx].getBoundingClientRect();
+								charDef.targetX = rect.left;
+								charDef.targetY = rect.top;
+								charDef.targetFontSize =
+									parseFloat(
+										window.getComputedStyle(
+											subtitleSpans[sIdx],
+										).fontSize,
+									) || wallFontSize;
+							}
+						}
+
+						if (item.char !== " ") {
+							canvasChars.push(charDef);
+						}
+						lx += item.w;
+					});
+				});
+
+				finalLayoutDOM.style.opacity = "0"; // hide again completely
+			};
+
+			window.addEventListener("resize", resize);
+			resize();
+
+			let mouseX = -1000;
+			let mouseY = -1000;
+			window.addEventListener("mousemove", (e) => {
+				mouseX = e.clientX;
+				mouseY = e.clientY;
+			});
+
+			// -------------------------
+			// Stage Architecture & Timelines
+			// -------------------------
+			let scrollProgress = 0;
+			ScrollTrigger.create({
+				trigger: "#intro-sequence",
+				start: "top top",
+				end: "+=5000", // Smooth immense scroll
+				pin: true,
+				scrub: 1, // Absolute timeline smoothing
+				onUpdate: (self) => {
+					scrollProgress = self.progress;
+				},
+			});
+
+			// ============================
+			// PHASE 1: AI STREAMING DETAILS (25%-45% scroll)
+			// ============================
+
+			// --- Layer 1: Scroll-Scrubbed Milestone Typing ---
+			const milestones = [
+				{
+					text: "Diploma in Mechanical Engineering @ NGP Patna-13 (No. 1 College)",
+					start: 0.25,
+					end: 0.3,
+				},
+				{
+					text: "3rd Rank: zBrain AI Agent Hackathon (IIT Jodhpur)",
+					start: 0.3,
+					end: 0.35,
+				},
+				{
+					text: "Participant: 1 Billion Follower Summit (AI Filmmaking Award)",
+					start: 0.35,
+					end: 0.4,
+				},
+				{
+					text: "Built: File Converter Mobile Application",
+					start: 0.4,
+					end: 0.45,
+				},
+			];
+
+			const drawMilestones = () => {
+				if (!ctx) return;
+				const fSize = width < 768 ? 14 : 18;
+				// Optimization 4: Set ctx state once before loop
+				ctx.font = `bold ${fSize}px monospace`;
+				ctx.textAlign = "center";
+				ctx.textBaseline = "middle";
+				const cx = (width / 2) | 0;
+				const cy = (height / 2) | 0;
+
+				milestones.forEach((m) => {
+					if (scrollProgress < m.start || scrollProgress > m.end)
+						return;
+
+					const phaseLen = m.end - m.start;
+					const t = (scrollProgress - m.start) / phaseLen;
+
+					let charCount = 0;
+					let alpha = 1;
+					let showCursor = true;
+
+					if (t < 0.7) {
+						const typeProgress = t / 0.7;
+						charCount = (typeProgress * m.text.length) | 0;
+						alpha = Math.min(1, t / 0.05);
+					} else if (t < 0.85) {
+						charCount = m.text.length;
+						showCursor = ((Date.now() / 500) | 0) % 2 === 0;
+					} else {
+						const fadeT = (t - 0.85) / 0.15;
+						charCount = ((1 - fadeT) * m.text.length) | 0;
+						alpha = 1 - fadeT;
+						showCursor = charCount > 0;
+					}
+
+					charCount = Math.max(0, Math.min(m.text.length, charCount));
+					if (alpha <= 0 || charCount === 0) return;
+					alpha = Math.min(1, alpha);
+
+					const displayText = m.text.slice(0, charCount);
+					const cursorChar = showCursor ? "|" : "";
+
+					ctx.fillStyle = `rgba(255, 255, 255, ${alpha})`;
+					ctx.shadowColor = `rgba(255, 80, 80, ${alpha * 0.5})`;
+					ctx.shadowBlur = 10;
+					ctx.fillText(displayText + cursorChar, cx, cy);
+					ctx.shadowBlur = 0;
+				});
+			};
+
+			// --- Layer 2: Randomized Interests (AI Typing + Mouse Repulsion) ---
+			const interestPool = [
+				"CSE Batch 2023-2027",
+				"Astrophysics",
+				"Vibe Coder",
+				"Russian Language Learner",
+				"Cinematography",
+				"Mathematics",
+				"Neuroscience",
+			];
+
+			interface FloatingTag {
+				text: string;
+				x: number;
+				y: number;
+				vx: number;
+				vy: number;
+				spawnTime: number;
+			}
+
+			let floatingTags: FloatingTag[] = [];
+			let tagTimer: ReturnType<typeof setInterval> | null = null;
+			let wasInWhisperPhase = false;
+
+			const spawnTag = () => {
+				const text =
+					interestPool[
+						Math.floor(Math.random() * interestPool.length)
+					];
+				floatingTags.push({
+					text,
+					x: width * (0.15 + Math.random() * 0.7),
+					y: Math.max(90, height * (0.15 + Math.random() * 0.7)),
+					vx: 0,
+					vy: 0,
+					spawnTime: Date.now(),
+				});
+				if (floatingTags.length > 5) floatingTags.shift();
+			};
+
+			const drawInterests = () => {
+				if (!ctx) return;
+				const now = Date.now();
+				const tagLife = 2500;
+				const fSize = width < 768 ? 11 : 13;
+
+				floatingTags = floatingTags.filter(
+					(tag) => now - tag.spawnTime < tagLife,
+				);
+
+				// Optimization 4: Set font state once before loop
+				ctx.font = `300 ${fSize}px monospace`;
+				ctx.textAlign = "center";
+				ctx.textBaseline = "middle";
+
+				floatingTags.forEach((tag) => {
+					const elapsed = now - tag.spawnTime;
+
+					const typeInEnd = 400;
+					const holdEnd = tagLife - 400;
+					let charCount = tag.text.length;
+					let alpha = 1;
+					let showCursor = false;
+
+					if (elapsed < typeInEnd) {
+						const p = elapsed / typeInEnd;
+						charCount = (p * tag.text.length) | 0;
+						alpha = Math.min(1, elapsed / 100);
+						showCursor = true;
+					} else if (elapsed < holdEnd) {
+						charCount = tag.text.length;
+						showCursor = ((now / 500) | 0) % 2 === 0;
+					} else {
+						const fadeT = (elapsed - holdEnd) / (tagLife - holdEnd);
+						charCount = ((1 - fadeT) * tag.text.length) | 0;
+						alpha = 1 - fadeT;
+						showCursor = charCount > 0;
+					}
+
+					charCount = Math.max(
+						0,
+						Math.min(tag.text.length, charCount),
+					);
+					alpha = Math.max(0, Math.min(1, alpha));
+					if (charCount === 0) return;
+
+					// Mouse repulsion
+					const dx = tag.x - mouseX;
+					const dy = tag.y - mouseY;
+					const dist = Math.sqrt(dx * dx + dy * dy);
+					if (dist < 120 && dist > 0) {
+						const force = ((120 - dist) / 120) * 2.5;
+						tag.vx += (dx / dist) * force;
+						tag.vy += (dy / dist) * force;
+					}
+					tag.vx *= 0.92;
+					tag.vy *= 0.92;
+					tag.x += tag.vx;
+					tag.y += tag.vy;
+
+					const displayText =
+						tag.text.slice(0, charCount) + (showCursor ? "|" : "");
+
+					ctx.fillStyle = `rgba(255, 51, 51, ${(alpha * 0.6).toFixed(2)})`;
+					ctx.fillText(displayText, tag.x | 0, tag.y | 0);
+				});
+			};
+
+			const drawWhisperPhase = () => {
+				if (!ctx) return;
+				const inPhase = scrollProgress >= 0.25 && scrollProgress < 0.45;
+
+				if (inPhase && !wasInWhisperPhase) {
+					wasInWhisperPhase = true;
+					floatingTags = [];
+					spawnTag();
+					if (tagTimer) clearInterval(tagTimer);
+					tagTimer = setInterval(spawnTag, 900);
+				}
+
+				if (!inPhase && wasInWhisperPhase) {
+					wasInWhisperPhase = false;
+					floatingTags = [];
+					if (tagTimer) {
+						clearInterval(tagTimer);
+						tagTimer = null;
+					}
+					return;
+				}
+
+				if (!inPhase) return;
+
+				drawInterests();
+				drawMilestones();
+			};
+
+			let frameCount = 0;
+
+			const animate = () => {
+				frameCount++;
+
+				// Optimization 2: Kill-switch — skip all canvas work when intro is fully resolved
+				if (scrollProgress >= 1.0) {
+					requestAnimationFrame(animate);
+					return;
+				}
+
+				ctx.clearRect(0, 0, width, height);
+
+				let phaseAlpha = 1;
+
+				// Phase 0: Static Scrambling Grid (STOPS drawing entirely past 25%)
+				if (scrollProgress < 0.25 && offCtx) {
+					let gridAlpha = 1;
+					if (scrollProgress >= 0.15) {
+						gridAlpha = 1 - (scrollProgress - 0.15) / 0.1;
+					}
+
+					// Optimization 3: Scramble only every 4th frame
+					if ((frameCount & 3) === 0) {
+						const total = gridCols * gridRows;
+						const scrambleCount = (total * 0.15) | 0;
+						for (let s = 0; s < scrambleCount; s++) {
+							const idx = (Math.random() * total) | 0;
+							gridChars[idx] =
+								characters[
+									(Math.random() * characters.length) | 0
+								];
+						}
+
+						// Redraw grid to offscreen canvas only when scrambled
+						offCtx.clearRect(0, 0, width, height);
+						// Optimization 4: Set state once outside loops
+						offCtx.fillStyle = "rgba(180, 40, 0, 0.4)";
+						offCtx.font = `${bgFontSize}px monospace`;
+						offCtx.textAlign = "left";
+						offCtx.textBaseline = "top";
+
+						for (let col = 0; col < gridCols; col++) {
+							for (let row = 0; row < gridRows; row++) {
+								offCtx.fillText(
+									gridChars[col * gridRows + row],
+									col * bgFontSize,
+									row * bgFontSize,
+								);
+							}
+						}
+					}
+
+					// Blit offscreen canvas (every frame for smooth alpha fade)
+					ctx.globalAlpha = Math.max(0, gridAlpha);
+					ctx.drawImage(offCanvas, 0, 0, width, height);
+					ctx.globalAlpha = 1.0;
+				}
+
+				// Stage 0 -> Welcome Text Centerpiece (fades with grid)
+				if (scrollProgress < 0.25) {
+					if (scrollProgress >= 0.15) {
+						phaseAlpha = 1 - (scrollProgress - 0.15) / 0.1;
+					}
+
+					// Welcome Text Loop
+					const welcomeIndex =
+						Math.floor(Date.now() / 400) % welcomeTexts.length;
+					ctx.fillStyle = `rgba(255, 255, 255, ${Math.max(0, phaseAlpha)})`;
+					ctx.textAlign = "center";
+					ctx.textBaseline = "middle";
+					ctx.font = `bold ${width > 768 ? 80 : 40}px Inter, sans-serif`;
+					ctx.shadowColor = "rgba(255, 255, 255, 0.6)";
+					ctx.shadowBlur = 25;
+					ctx.fillText(
+						welcomeTexts[welcomeIndex],
+						width / 2,
+						height / 2,
+					);
+					ctx.shadowBlur = 0;
+				}
+
+				// Stage 1 -> Dual-Layer Whispers
+				drawWhisperPhase();
+
+				// Multi-stage orchestrator
+				if (scrollProgress >= 0.55) {
+					// Stage 3: The Data Wall Fade In
+					let s3_alpha = 0;
+					if (scrollProgress >= 0.55 && scrollProgress <= 0.68) {
+						s3_alpha = (scrollProgress - 0.55) / 0.13;
+					} else if (scrollProgress > 0.68) {
+						s3_alpha = 1;
+					}
+
+					// Stage 4: Red -> White Target Extraction
+					let s4_colorProgress = 0;
+					if (scrollProgress >= 0.68 && scrollProgress <= 0.77) {
+						s4_colorProgress = (scrollProgress - 0.68) / 0.09;
+					} else if (scrollProgress > 0.77) {
+						s4_colorProgress = 1;
+					}
+
+					// Stage 5: DOM Positional Alignment Morph
+					let s5_alignProgress = 0;
+					if (scrollProgress >= 0.77 && scrollProgress <= 0.87) {
+						let p = (scrollProgress - 0.77) / 0.1;
+						// Quartic easeInOut
+						s5_alignProgress =
+							p < 0.5
+								? 8 * p * p * p * p
+								: 1 - Math.pow(-2 * p + 2, 4) / 2;
+					} else if (scrollProgress > 0.87) {
+						s5_alignProgress = 1;
+					}
+
+					// Stage 6: The Purge / Handoff
+					let s6_purgeProgress = 0;
+					if (scrollProgress >= 0.87) {
+						s6_purgeProgress = (scrollProgress - 0.87) / 0.13;
+					}
+
+					ctx.textAlign = "left";
+					ctx.textBaseline = "top";
+
+					// Cache last font to avoid re-setting per char
+					let lastFont = "";
+
+					canvasChars.forEach((c) => {
+						let cx = c.origX;
+						let cy = c.origY;
+						let cSize = c.origFontSize;
+						let cAlpha = s3_alpha;
+						let cColor = "rgba(255, 51, 51, ";
+						let displayChar = c.char;
+
+						if (c.isTitle || c.isSubtitle) {
+							let r = 255;
+							let g = (51 + 204 * s4_colorProgress) | 0;
+							let b = (51 + 204 * s4_colorProgress) | 0;
+							cColor = `rgba(${r}, ${g}, ${b}, `;
+
+							if (s5_alignProgress > 0) {
+								cx =
+									c.origX +
+									(c.targetX - c.origX) * s5_alignProgress;
+								cy =
+									c.origY +
+									(c.targetY - c.origY) * s5_alignProgress;
+								cSize =
+									c.origFontSize +
+									(c.targetFontSize - c.origFontSize) *
+										s5_alignProgress;
+							}
+
+							if (
+								scrollProgress >= 0.77 &&
+								scrollProgress < 1.0
+							) {
+								let p = (scrollProgress - 0.77) / 0.23;
+								let lockTarget =
+									0.7 + 0.3 * ((c.globalIndex % 15) / 15);
+								if (p < lockTarget) {
+									let cycle =
+										((p * 300 + c.globalIndex * 17) | 0) %
+										characters.length;
+									displayChar = characters[cycle];
+								}
+							}
+
+							if (s6_purgeProgress > 0) {
+								cAlpha = 1 - s6_purgeProgress;
+							}
+						} else {
+							if (s6_purgeProgress > 0) {
+								let t = s6_purgeProgress;
+								let gravity = 8000;
+								let wind = 4000;
+								cx = c.origX + c.vx * t + 0.5 * wind * t * t;
+								cy = c.origY + c.vy * t + 0.5 * gravity * t * t;
+								cAlpha = 1 - Math.pow(t, 1.5);
+							}
+						}
+
+						// Mouse Repulsion during Data Wall phase
+						if (
+							s5_alignProgress === 0 &&
+							s6_purgeProgress === 0 &&
+							cAlpha > 0
+						) {
+							let dx = cx - mouseX;
+							let dy = cy - mouseY;
+							let dist = Math.sqrt(dx * dx + dy * dy);
+							const hoverRadius = 100;
+							if (dist < hoverRadius && dist > 0) {
+								let force = (hoverRadius - dist) / hoverRadius;
+								cx += (dx / dist) * force * 10;
+								cy += (dy / dist) * force * 10;
+							}
+						}
+
+						if (cAlpha > 0) {
+							ctx.fillStyle = cColor + cAlpha.toFixed(3) + ")";
+							// Optimization 4: Only set font when it actually changes
+							const nextFont = `bold ${cSize | 0}px Inter, sans-serif`;
+							if (nextFont !== lastFont) {
+								ctx.font = nextFont;
+								lastFont = nextFont;
+							}
+							ctx.fillText(displayChar, cx | 0, cy | 0);
+						}
+					});
+
+					// Stage 6 Seamless Handoff
+					if (s6_purgeProgress > 0) {
+						finalLayoutDOM.style.opacity = "1";
+						finalLayoutDOM.style.pointerEvents = "auto";
+
+						const tSpans = titleDOM.querySelectorAll("span");
+						const sSpans = subtitleDOM.querySelectorAll("span");
+
+						tSpans.forEach((span) => {
+							(span as HTMLElement).style.opacity =
+								String(s6_purgeProgress);
+						});
+						sSpans.forEach((span) => {
+							(span as HTMLElement).style.opacity =
+								String(s6_purgeProgress);
+						});
+
+						let fadeBase = Math.min(1, s6_purgeProgress * 2);
+						let yOffset = 20 * (1 - fadeBase);
+
+						if (topTextDOM) {
+							topTextDOM.style.opacity = fadeBase.toString();
+							topTextDOM.style.transform = `translateY(${yOffset}px)`;
+						}
+						if (aboutDOM) {
+							aboutDOM.style.opacity = fadeBase.toString();
+							aboutDOM.style.transform = `translateY(${yOffset}px)`;
+						}
+						if (photoDOM) {
+							photoDOM.style.opacity = String(s6_purgeProgress);
+						}
+					} else {
+						finalLayoutDOM.style.opacity = "0";
+						finalLayoutDOM.style.pointerEvents = "none";
+						if (photoDOM) {
+							photoDOM.style.opacity = "0";
+						}
+					}
+				}
+
+				requestAnimationFrame(animate);
+			};
+
+			animate();
+		});
+
+		// Secondary Layout triggers below fold
+		const scrollElements: HTMLElement[] = gsap.utils.toArray(
+			"[data-scroll-trigger]",
+		);
+		scrollElements.forEach((el) => {
+			gsap.fromTo(
+				el,
+				{ opacity: 0, y: 40 },
+				{
+					opacity: 1,
+					y: 0,
+					duration: 1.2,
+					ease: "power3.out",
+					scrollTrigger: {
+						trigger: el,
+						start: "top 85%",
+						toggleActions: "play none none reverse",
+					},
+				},
+			);
+		});
+
+		// 3D Typographic Achievement Grid Animation
+		const gridSection = document.getElementById("achievement-grid");
+		if (gridSection) {
+			const cubes = gsap.utils.toArray(".achievement-cube");
+			const bg = gridSection.querySelector(".achievement-bg");
+
+			// Dynamic sizing handler for 3D depth to maintain perfect aspect-square geometry
+			const setCubeDepth = () => {
+				cubes.forEach((cube: any) => {
+					// 3D translateZ is half the physical width
+					const depth = cube.offsetWidth / 2;
+					cube.style.setProperty("--cube-depth", `${depth}px`);
+				});
+			};
+			setCubeDepth();
+			window.addEventListener("resize", setCubeDepth);
+
+			// Setup initial state: looking at the front
+			gsap.set(cubes, { rotateX: 0, rotateY: 0, rotateZ: 0 });
+
+			// Create a timeline linked strictly to scrub through the section
+			const gridTl = gsap.timeline({
+				scrollTrigger: {
+					trigger: gridSection,
+					start: "top top",
+					end: "+=150%", // Tumble while pinned
+					scrub: 1,
+					pin: true,
+					onUpdate: (self) => {
+						// Hard Brutalist Swap exactly at 50%
+						if (self.progress > 0.5) {
+							gridSection.classList.add(
+								"achievement-grid-is-brutalist",
+							);
+							if (bg)
+								(bg as HTMLElement).style.backgroundColor =
+									"#ff3333";
+						} else {
+							gridSection.classList.remove(
+								"achievement-grid-is-brutalist",
+							);
+							if (bg)
+								(bg as HTMLElement).style.backgroundColor =
+									"#fdfbf7";
+						}
+					},
+				},
+			});
+
+			// Multi-axis tumble: each cube spins uniquely
+			cubes.forEach((cube, index) => {
+				const dirX = index % 2 === 0 ? 1 : -1;
+				const dirY = index % 3 === 0 ? 1 : -1;
+
+				gridTl.to(
+					cube as any,
+					{
+						rotateX: 360 * dirX,
+						rotateY: 270 * dirY,
+						rotateZ: 25 * dirX,
+						ease: "none",
+						duration: 1,
+					},
+					0,
+				);
+			});
+
+			// Recalculate GSAP trigger points dynamically since we moved a massive DOM element
+			ScrollTrigger.refresh();
+		}
+
+		if (history.scrollRestoration) {
+			history.scrollRestoration = "manual";
+		}
+		window.onbeforeunload = function () {
+			window.scrollTo(0, 0);
+		};
+	</script>
+
+	<style>
+		.perspective-distant {
+			perspective: 1200px;
+		}
+		.transform-style-3d {
+			transform-style: preserve-3d;
+			will-change: transform;
+		}
+
+		.cube-face {
+			position: absolute;
+			inset: 0;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: clamp(3.5rem, 10vw, 5rem);
+			font-weight: 800;
+			line-height: 0.85;
+			letter-spacing: -0.05em;
+			text-transform: uppercase;
+			color: #ff3333;
+			border: 4px solid #ff3333;
+			background-color: transparent;
+			padding: 0; /* Removing padding so text clips hard to the very edge */
+			text-align: justify;
+			text-justify: distribute;
+			word-break: break-all;
+			overflow: hidden;
+			backface-visibility: hidden;
+			transition:
+				color 0.1s ease,
+				border-color 0.1s ease;
+		}
+
+		@media (max-width: 768px) {
+			.cube-face {
+				font-size: clamp(2.5rem, 8vw, 3.5rem);
+				border-width: 2px;
+			}
+		}
+
+		.cube-front {
+			transform: translateZ(var(--cube-depth));
+		}
+		.cube-right {
+			transform: rotateY(90deg) translateZ(var(--cube-depth));
+		}
+		.cube-bottom {
+			transform: rotateX(-90deg) translateZ(var(--cube-depth));
+		}
+		.cube-top {
+			transform: rotateX(90deg) translateZ(var(--cube-depth));
+		}
+		.cube-back {
+			transform: rotateY(180deg) translateZ(var(--cube-depth));
+		}
+		.cube-left {
+			transform: rotateY(-90deg) translateZ(var(--cube-depth));
+		}
+
+		/* Brutalist End State Classes */
+		.achievement-grid-is-brutalist .cube-face {
+			color: #000000 !important;
+			border-color: #000000 !important;
+		}
+	</style>
+</Layout>

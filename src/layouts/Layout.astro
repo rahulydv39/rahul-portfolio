@@ -1,0 +1,710 @@
+---
+import "../styles/global.css";
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+			rel="stylesheet"
+		/>
+		<title>{title}</title>
+	</head>
+	<body
+		class="bg-[#050505] text-[#f4f4f4] overflow-x-hidden antialiased selection:bg-[#ff3333] selection:text-white"
+	>
+		<!-- Atmospheric Smoke/Dirt Canvas Overlay -->
+		<canvas
+			id="smoke-canvas"
+			style="position:fixed;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;"
+		></canvas>
+
+		<!-- Persistent Fixed Header -->
+		<header
+			class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-8 md:px-24 py-8 pointer-events-none mix-blend-difference"
+		>
+			<div
+				class="text-white font-bold text-xl tracking-widest pointer-events-auto"
+			>
+				RAHUL.
+			</div>
+			<nav
+				class="flex space-x-8 text-sm md:text-base font-mono pointer-events-auto"
+			>
+				<a
+					href="/"
+					class="header-link text-gray-400 hover:text-[#ff3333] transition-colors uppercase tracking-widest"
+					data-text="HOME">HOME</a
+				>
+				<a
+					href="#selected-works"
+					class="header-link text-gray-400 hover:text-[#ff3333] transition-colors uppercase tracking-widest"
+					data-text="ACHIEVEMENTS">ACHIEVEMENTS</a
+				>
+				<a
+					href="#contact"
+					class="header-link text-gray-400 hover:text-[#ff3333] transition-colors uppercase tracking-widest"
+					data-text="CONTACT">CONTACT</a
+				>
+			</nav>
+		</header>
+
+		<!-- Barba.js transition wrapper -->
+		<div data-barba="wrapper">
+			<main
+				data-barba="container"
+				data-barba-namespace="home"
+				class="relative z-10 w-full min-h-screen"
+			>
+				<slot />
+			</main>
+		</div>
+
+		<!-- Contact Modal Overlay -->
+		<section
+			id="contact-modal"
+			class="fixed inset-0 z-50 pointer-events-none opacity-0 flex flex-col md:flex-row bg-[#050505] text-white"
+		>
+			<!-- Close Button -->
+			<button
+				id="close-contact"
+				class="absolute top-8 right-8 z-60 text-sm md:text-base font-mono uppercase tracking-widest text-white mix-blend-difference hover:text-[#ff3333] transition-colors"
+			>
+				Close [X]
+			</button>
+
+			<!-- Left Column (Links) -->
+			<div
+				class="w-full md:w-[60%] h-full flex flex-col justify-center p-8 md:p-24 relative"
+			>
+				<div class="space-y-12 w-full max-w-lg mx-auto md:mx-0">
+					<!-- Group 1 -->
+					<div
+						class="flex flex-col items-start translate-x-4 md:translate-x-12"
+					>
+						<span
+							class="font-mono text-[#ff3333] text-xs mb-2 tracking-widest uppercase"
+							>Drop me a line:</span
+						>
+						<a
+							href="mailto:rahulyadav969102@gmail.com"
+							class="contact-link text-3xl md:text-2xl font-medium hover:text-[#ff3333] transition-colors"
+							data-text="rahulyadav969102@gmail.com"
+							>rahulyadav969102@gmail.com</a
+						>
+					</div>
+
+					<!-- Group 2 -->
+					<div
+						class="flex flex-col items-start -translate-x-2 md:-translate-x-8 mt-16 md:mt-24"
+					>
+						<span
+							class="font-mono text-[#ff3333] text-xs mb-2 tracking-widest uppercase"
+							>Social Media:</span
+						>
+						<div class="flex flex-col space-y-2">
+							<a
+								href="www.linkedin.com/in/rahul-kumar-22a175250"
+								class="contact-link text-2xl md:text-4xl font-light hover:text-[#ff3333] transition-colors"
+								data-text="LinkedIn">LinkedIn</a
+							>
+							<a
+								href="#"
+								class="contact-link text-2xl md:text-4xl font-light hover:text-[#ff3333] transition-colors"
+								data-text="X | Twitter">X | Twitter</a
+							>
+							<a
+								href="#"
+								class="contact-link text-2xl md:text-4xl font-light hover:text-[#ff3333] transition-colors"
+								data-text="Instagram">Instagram</a
+							>
+						</div>
+					</div>
+
+					<!-- Group 3 -->
+					<div
+						class="flex flex-col items-start translate-x-8 md:translate-x-20 mt-12"
+					>
+						<span
+							class="font-mono text-[#ff3333] text-xs mb-2 tracking-widest uppercase"
+							>Instant:</span
+						>
+						<div class="flex flex-col space-y-2">
+							<a
+								href="#"
+								class="contact-link text-2xl md:text-4xl font-light hover:text-[#ff3333] transition-colors"
+								data-text="Telegram">Telegram</a
+							>
+							<a
+								href="#"
+								class="contact-link text-2xl md:text-4xl font-light hover:text-[#ff3333] transition-colors"
+								data-text="WhatsApp">WhatsApp</a
+							>
+						</div>
+					</div>
+				</div>
+
+				<h2
+					class="absolute bottom-8 left-8 md:bottom-12 md:left-12 text-6xl md:text-9xl font-bold tracking-tighter opacity-10 pointer-events-none"
+				>
+					↗ LET'S TALK
+				</h2>
+			</div>
+
+			<!-- Right Column (Image & Canvas Overlay) -->
+			<div
+				class="hidden md:flex w-[45%] h-full relative bg-[#0a0a0a] overflow-hidden"
+			>
+				<!-- Underlay Image -->
+				<img
+					src="/talkme.jpeg"
+					alt="Contact Image"
+					class="absolute bottom-0 right-0 w-full h-full object-cover opacity-60"
+				/>
+				<h3
+					class="absolute top-14 right-3 font-mono font-medium text-white text-3xl md:text-4xl uppercase tracking-widest opacity-90 z-20 hover: fill-blue-500"
+					style="writing-mode: vertical-rl; transform: rotate(180deg);"
+				>
+					Curious
+				</h3>
+
+				<!-- Superimposed Smoke Overlay over the right 40% panel only -->
+				<canvas
+					id="contact-smoke-canvas"
+					class="absolute inset-0 w-full h-full mix-blend-screen pointer-events-none z-10"
+				></canvas>
+			</div>
+		</section>
+
+		<!-- Jagged Curtain Transition Wrapper -->
+		<div
+			id="curtain-wrapper"
+			class="fixed inset-0 z-60 flex w-full h-full pointer-events-none"
+		>
+			<!-- Injected via JavaScript below -->
+		</div>
+
+		<style is:global>
+			html {
+				scroll-behavior: smooth;
+			}
+			body {
+				font-family: "Inter", sans-serif;
+				margin: 0;
+			}
+			/* Hiding scrollbar for a minimalist aesthetic */
+			::-webkit-scrollbar {
+				display: none;
+			}
+			* {
+				scrollbar-width: none; /* Firefox */
+			}
+		</style>
+
+		<script>
+			import barba from "@barba/core";
+			import { gsap } from "gsap";
+
+			// Hacker Decode Hover Effect for Header & Contact Links
+			const letters =
+				"ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-=[]{}|;':,./<>?`~";
+			const links = document.querySelectorAll(
+				".header-link, .contact-link",
+			);
+
+			links.forEach((link) => {
+				let interval: ReturnType<typeof setInterval> | null = null;
+				link.addEventListener("mouseenter", (e) => {
+					const target = e.target as HTMLElement;
+					const finalString = target.dataset.text || "";
+					let iteration = 0;
+
+					if (interval) clearInterval(interval);
+
+					interval = setInterval(() => {
+						target.innerText = finalString
+							.split("")
+							.map((letter, index) => {
+								if (index < iteration) {
+									return finalString[index];
+								}
+								// Maintain spaces cleanly during scramble
+								if (finalString[index] === " ") return " ";
+								return letters[
+									Math.floor(Math.random() * letters.length)
+								];
+							})
+							.join("");
+
+						if (iteration >= finalString.length) {
+							if (interval) clearInterval(interval);
+						}
+						iteration += 1 / 3;
+					}, 30);
+				});
+
+				// Reset when mouse leaves just in case it didn't finish
+				link.addEventListener("mouseleave", (e) => {
+					const target = e.target as HTMLElement;
+					if (interval) clearInterval(interval);
+					target.innerText = target.dataset.text || "";
+				});
+			});
+
+			// Initialize Barba
+			barba.init({
+				transitions: [
+					{
+						name: "fade-transition",
+						leave(data) {
+							return gsap.to(data.current.container, {
+								opacity: 0,
+								y: -40,
+								duration: 0.5,
+								ease: "power3.inOut",
+							});
+						},
+						enter(data) {
+							gsap.set(data.next.container, {
+								opacity: 0,
+								y: 40,
+							});
+
+							return gsap.to(data.next.container, {
+								opacity: 1,
+								y: 0,
+								duration: 0.5,
+								ease: "power3.out",
+								delay: 0.2,
+							});
+						},
+					},
+				],
+			});
+
+			// ==========================================
+			// Jagged Curtain & Contact Modal Logic
+			// ==========================================
+			const curtainWrapper = document.getElementById("curtain-wrapper");
+			const contactModal = document.getElementById("contact-modal");
+			const contactLinks =
+				document.querySelectorAll("a[href='#contact']");
+			const closeBtn = document.getElementById("close-contact");
+
+			let curtainCols: HTMLElement[] = [];
+			const numCols = 20;
+
+			// Generate the columns
+			if (curtainWrapper) {
+				for (let i = 0; i < numCols; i++) {
+					const col = document.createElement("div");
+					col.classList.add("curtain-col");
+					col.style.width = `${100 / numCols}%`;
+					col.style.height = "100%";
+					col.style.backgroundColor = "#E5251E";
+					col.style.transform = "scaleY(0)";
+					// Alternate origin top/bottom for jagged feel
+					col.style.transformOrigin = i % 2 === 0 ? "top" : "bottom";
+
+					curtainWrapper.appendChild(col);
+					curtainCols.push(col);
+				}
+			}
+
+			// Open Timeline
+			const openContactTl = gsap.timeline({ paused: true });
+			if (contactModal && curtainCols.length > 0) {
+				// Cover screen
+				openContactTl.to(curtainCols, {
+					scaleY: 1,
+					duration: 0.6,
+					ease: "power4.inOut",
+					stagger: {
+						each: 0.03,
+						from: "random",
+					},
+				});
+
+				// Swap layers
+				openContactTl.set(contactModal, {
+					opacity: 1,
+					pointerEvents: "auto",
+				});
+
+				// Flip Origins
+				openContactTl.add(() => {
+					curtainCols.forEach((col, i) => {
+						col.style.transformOrigin =
+							i % 2 === 0 ? "bottom" : "top";
+					});
+				});
+
+				// Uncover revealing modal
+				openContactTl.to(curtainCols, {
+					scaleY: 0,
+					duration: 0.6,
+					ease: "power4.inOut",
+					stagger: {
+						each: 0.03,
+						from: "random",
+					},
+				});
+
+				// Re-orient Origins for reverse
+				openContactTl.add(() => {
+					curtainCols.forEach((col, i) => {
+						col.style.transformOrigin =
+							i % 2 === 0 ? "top" : "bottom";
+					});
+				});
+			}
+
+			// Bind Click Events
+			contactLinks.forEach((link) => {
+				link.addEventListener("click", (e) => {
+					e.preventDefault();
+					if (openContactTl.isActive()) return;
+
+					// Lock body scroll
+					document.body.style.overflow = "hidden";
+					openContactTl.play(0);
+				});
+			});
+
+			if (closeBtn) {
+				closeBtn.addEventListener("click", () => {
+					if (openContactTl.isActive()) return;
+
+					// Restore body scroll
+					document.body.style.overflow = "";
+					openContactTl.reverse();
+				});
+			}
+		</script>
+
+		<!-- Atmospheric Smoke/Dirt Particle System (Performance Optimized) -->
+		<script>
+			(() => {
+				const smokeCanvas = document.getElementById(
+					"smoke-canvas",
+				) as HTMLCanvasElement;
+				if (!smokeCanvas) return;
+				const sCtx = smokeCanvas.getContext("2d");
+				if (!sCtx) return;
+
+				let sW = 0,
+					sH = 0;
+
+				interface SmokeBlob {
+					baseX: number;
+					baseY: number;
+					size: number;
+					alpha: number;
+					phaseX: number;
+					phaseY: number;
+					speedX: number;
+					speedY: number;
+					driftX: number;
+					driftY: number;
+					// Pre-computed color strings (avoid per-frame string alloc)
+					colorCore: string;
+					colorMid: string;
+					colorEdge: string;
+					r: number;
+					g: number;
+					b: number;
+				}
+
+				let blobs: SmokeBlob[] = [];
+				let isVisible = true;
+				let rafId = 0;
+
+				// Palette defined once outside loop
+				const palette = [
+					[90, 85, 78],
+					[70, 70, 80],
+					[100, 90, 75],
+					[60, 60, 60],
+					[80, 75, 85],
+					[50, 55, 60],
+				];
+
+				const initBlobs = () => {
+					blobs = [];
+					// Optimization 3: Reduced from 55 → 33 blobs, bigger + more opaque
+					const count = 33;
+					for (let i = 0; i < count; i++) {
+						const c = palette[(Math.random() * palette.length) | 0];
+						const alpha = 0.025 + Math.random() * 0.065; // ~40% more opaque
+						blobs.push({
+							baseX: Math.random() * sW,
+							baseY: Math.random() * sH,
+							size: 120 + Math.random() * 280, // ~30% larger
+							alpha,
+							phaseX: Math.random() * Math.PI * 2,
+							phaseY: Math.random() * Math.PI * 2,
+							speedX: 0.0003 + Math.random() * 0.0008,
+							speedY: 0.0002 + Math.random() * 0.0006,
+							driftX: 30 + Math.random() * 120,
+							driftY: 20 + Math.random() * 80,
+							r: c[0],
+							g: c[1],
+							b: c[2],
+							// Pre-compute base color strings
+							colorCore: `rgba(${c[0]}, ${c[1]}, ${c[2]}, `,
+							colorMid: "",
+							colorEdge: `rgba(${c[0]}, ${c[1]}, ${c[2]}, 0)`,
+						});
+					}
+				};
+
+				const resizeSmoke = () => {
+					// Optimization 1: Cap DPR at 1.5
+					const sDpr = Math.min(window.devicePixelRatio || 1, 1.5);
+					sW = window.innerWidth;
+					sH = window.innerHeight;
+					smokeCanvas.width = (sW * sDpr) | 0;
+					smokeCanvas.height = (sH * sDpr) | 0;
+					sCtx.setTransform(sDpr, 0, 0, sDpr, 0, 0);
+					initBlobs();
+				};
+
+				window.addEventListener("resize", resizeSmoke);
+				resizeSmoke();
+
+				// Optimization 2: IntersectionObserver kill-switch
+				const observer = new IntersectionObserver(
+					(entries) => {
+						const wasVisible = isVisible;
+						isVisible = entries[0].isIntersecting;
+						if (isVisible && !wasVisible) {
+							rafId = requestAnimationFrame(animateSmoke);
+						}
+					},
+					{ threshold: 0 },
+				);
+				observer.observe(smokeCanvas);
+
+				let time = 0;
+
+				const animateSmoke = () => {
+					if (!isVisible) return; // Kill-switch
+					sCtx.clearRect(0, 0, sW, sH);
+					time++;
+
+					for (let i = 0; i < blobs.length; i++) {
+						const b = blobs[i];
+
+						// Sinusoidal drift (bitwise round coordinates)
+						const x =
+							(b.baseX +
+								Math.sin(time * b.speedX + b.phaseX) *
+									b.driftX) |
+							0;
+						const y =
+							(b.baseY +
+								Math.cos(time * b.speedY + b.phaseY) *
+									b.driftY) |
+							0;
+
+						// Alpha pulsation
+						const pa =
+							b.alpha *
+							(0.7 + 0.3 * Math.sin(time * 0.002 + b.phaseX * 3));
+
+						// Radial gradient with pre-computed color base
+						const grad = sCtx.createRadialGradient(
+							x,
+							y,
+							0,
+							x,
+							y,
+							b.size,
+						);
+						grad.addColorStop(0, b.colorCore + pa.toFixed(4) + ")");
+						grad.addColorStop(
+							0.4,
+							b.colorCore + (pa * 0.5).toFixed(4) + ")",
+						);
+						grad.addColorStop(1, b.colorEdge);
+
+						sCtx.fillStyle = grad;
+						const s2 = b.size * 2;
+						sCtx.fillRect(x - b.size, y - b.size, s2, s2);
+					}
+
+					rafId = requestAnimationFrame(animateSmoke);
+				};
+
+				rafId = requestAnimationFrame(animateSmoke);
+			})();
+
+			// Contact Modal Focused Smoke Canvas (Operates exactly inside 40% panel bounds over image)
+			(() => {
+				const contactSmokeCanvas = document.getElementById(
+					"contact-smoke-canvas",
+				) as HTMLCanvasElement;
+				if (!contactSmokeCanvas) return;
+				const cCtx = contactSmokeCanvas.getContext("2d");
+				if (!cCtx) return;
+
+				let cW = 0,
+					cH = 0;
+
+				interface ContactBlob {
+					baseX: number;
+					baseY: number;
+					size: number;
+					alpha: number;
+					phaseX: number;
+					phaseY: number;
+					speedX: number;
+					speedY: number;
+					driftX: number;
+					driftY: number;
+					colorCore: string;
+					colorMid: string;
+					colorEdge: string;
+				}
+
+				let cBlobs: ContactBlob[] = [];
+				let cIsVisible = false;
+				let cRafId = 0;
+
+				// Gritty Data/Matrix Palette
+				const contactPalette = [
+					[220, 20, 20], // Aggressive red
+					[15, 15, 18], // Dark ash
+					[180, 180, 180], // Ghostly white
+					[255, 51, 51], // Primary harsh red
+				];
+
+				const initContactBlobs = () => {
+					cBlobs = [];
+					const count = 25; // Dense but localized
+					for (let i = 0; i < count; i++) {
+						const c =
+							contactPalette[
+								(Math.random() * contactPalette.length) | 0
+							];
+						const alpha = 0.05 + Math.random() * 0.1; // Harsher opacity for brutalist blend over image
+						cBlobs.push({
+							baseX: Math.random() * cW,
+							baseY: Math.random() * cH,
+							size: 80 + Math.random() * 200,
+							alpha,
+							phaseX: Math.random() * Math.PI * 2,
+							phaseY: Math.random() * Math.PI * 2,
+							speedX: 0.0008 + Math.random() * 0.0015, // Faster swirling
+							speedY: 0.001 + Math.random() * 0.002,
+							driftX: 50 + Math.random() * 150,
+							driftY: 40 + Math.random() * 100,
+							colorCore: `rgba(${c[0]}, ${c[1]}, ${c[2]}, `,
+							colorMid: "",
+							colorEdge: `rgba(${c[0]}, ${c[1]}, ${c[2]}, 0)`,
+						});
+					}
+				};
+
+				const resizeContactSmoke = () => {
+					// Read actual DOM sizing of its parent wrapper
+					const rect =
+						contactSmokeCanvas.parentElement?.getBoundingClientRect();
+					if (!rect) return;
+
+					const sDpr = Math.min(window.devicePixelRatio || 1, 1.5);
+					cW = rect.width;
+					cH = rect.height;
+
+					// Re-evaluate if container is hidden (e.g mobile)
+					if (cW === 0 || cH === 0) return;
+
+					contactSmokeCanvas.width = (cW * sDpr) | 0;
+					contactSmokeCanvas.height = (cH * sDpr) | 0;
+					cCtx.setTransform(sDpr, 0, 0, sDpr, 0, 0);
+					initContactBlobs();
+				};
+
+				window.addEventListener("resize", resizeContactSmoke);
+				// Initial resize
+				setTimeout(resizeContactSmoke, 100);
+
+				// Observer specifically toggles when modal overlay becomes visible
+				const contactObserver = new IntersectionObserver(
+					(entries) => {
+						const wasVisible = cIsVisible;
+						cIsVisible = entries[0].isIntersecting;
+
+						// Important: Also check if parent has sizes (meaning it renders on desktop > md)
+						if (cW === 0) resizeContactSmoke();
+
+						if (cIsVisible && !wasVisible && cW > 0) {
+							cRafId = requestAnimationFrame(animateContactSmoke);
+						}
+					},
+					{ threshold: 0 },
+				);
+				contactObserver.observe(contactSmokeCanvas);
+
+				let cTime = 0;
+
+				const animateContactSmoke = () => {
+					if (!cIsVisible) return;
+					cCtx.clearRect(0, 0, cW, cH);
+					cTime++;
+
+					for (let i = 0; i < cBlobs.length; i++) {
+						const b = cBlobs[i];
+						const x =
+							(b.baseX +
+								Math.sin(cTime * b.speedX + b.phaseX) *
+									b.driftX) |
+							0;
+						const y =
+							(b.baseY +
+								Math.cos(cTime * b.speedY + b.phaseY) *
+									b.driftY) |
+							0;
+
+						const pa =
+							b.alpha *
+							(0.6 +
+								0.4 * Math.sin(cTime * 0.004 + b.phaseX * 2));
+
+						const grad = cCtx.createRadialGradient(
+							x,
+							y,
+							0,
+							x,
+							y,
+							b.size,
+						);
+						grad.addColorStop(0, b.colorCore + pa.toFixed(4) + ")");
+						grad.addColorStop(
+							0.3,
+							b.colorCore + (pa * 0.6).toFixed(4) + ")",
+						);
+						grad.addColorStop(1, b.colorEdge);
+
+						cCtx.fillStyle = grad;
+						const s2 = b.size * 2;
+						cCtx.fillRect(x - b.size, y - b.size, s2, s2);
+					}
+
+					cRafId = requestAnimationFrame(animateContactSmoke);
+				};
+			})();
+		</script>
+	</body>
+</html>
